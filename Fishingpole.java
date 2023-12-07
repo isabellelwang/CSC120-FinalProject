@@ -4,7 +4,6 @@ public class Fishingpole {
      * String brand name of the fishing pole
      * double length of the fishing pole
      * int yearMade - year fishing pole was made
-     * int x: x coordinate location of the fishing pole
      */
 
     private String owner; 
