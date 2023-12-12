@@ -1,43 +1,17 @@
-public class Boat {
-    private String material = "Wood"; 
-    private double length;
-    private String owner; 
-    public int x; 
-    public int y; 
+public class Boat extends PhysicalThing {
+    private User owner;
     
-    public Boat(String owner, double length) {
+    public Boat(User owner) {
+        super(1, 1); 
         this.owner = owner; 
-        this.length = length; 
-    }
-
-    public String getMaterial() {
-        return this.material; 
-    }
-
-    public String getOwner() {
-        return this.owner; 
-    }
-
-    public int getX() {
-        return this.x; 
-    }
-
-    public int getY() {
-        return this.y; 
-    }
-
-    public double getLength() {
-        return this.length; 
     }
 
     public Boat() {
-        this.owner = "unknown"; 
-        this.length = 12.0; 
+        super(5, 5); 
+        this.owner = new User(); 
     }
 
-    
-
-    
-
-    
+    public User getOwner() {
+        return this.owner; 
+    }
 }

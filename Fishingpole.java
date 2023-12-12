@@ -1,17 +1,12 @@
-public class Fishingpole {
+public class Fishingpole extends PhysicalThing {
 
-    /**
-     * String brand name of the fishing pole
-     * double length of the fishing pole
-     * int yearMade - year fishing pole was made
-     */
-
-    private String owner; 
-    private double length; 
+    private User owner;
+    private double length;  
     
     public Fishingpole() {
-        this.length = 12.0; 
-        this.owner = "unknown";
+        super(); 
+        this.owner = new User(); 
+        this.length = 2; 
     }
 
     /**
@@ -19,36 +14,40 @@ public class Fishingpole {
      * @param owner String owner's name of the fishing pole
      * @param length 
      */
-    public Fishingpole(String owner, double length) {
-        this.owner = owner; 
+    public Fishingpole(User owner, double length) {
+        super(); 
+        this.owner = owner;
         this.length = length; 
     }
 
+    public Fishingpole(User owner) {
+        super(); 
+        new Fishingpole(owner, 2); 
+    }
     
-    public void extendFishingPole() {
-        System.out.println("You extended the fishing pole...");
+    public double getLength() {
+        return this.length; 
+    }
+
+    public User getOwner() {
+        return this.owner; 
+    }
+
+    public void extendFishingPole(int x, int y) {
+        if(Math.abs(x) > this.getLength() || Math.abs(y) > this.getLength()){
+            throw new RuntimeException("Oh no...you extended too far so your fishing pole broke.");
+        }
+        else if (x <= 0 || y<= 0) {
+            throw new RuntimeException("You did not extend the fishing pole at all...");
+        }
+        this.moveX(x); 
+        this.moveY(y); 
+        System.out.println("You extended your fishing pole " + x + " units!");
     }
 
     public void rewindFishingPole() {
-        System.out.println("Rewinding fishing pole...");
+        this.moveX(-(owner.getX() - this.getX())); 
+        System.out.println("Position of fishing pole is now " + this.getX()); 
     }
-
-    public void catchItem() {
-        this.rewindFishingPole(); 
-        System.out.println("You got something!");
-    }
-    
-
-    
-
-
-
-
-
-
-
-
-
-
-
 }
+
