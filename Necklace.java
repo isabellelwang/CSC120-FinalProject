@@ -7,4 +7,6 @@ public class Necklace extends PhysicalThing {
     public Necklace() {
         super(); 
     }
+
+    
 }

@@ -21,6 +21,10 @@ public class Ocean {
         return maxY; 
     }
 
+    public void addThing(PhysicalThing item) {
+        location[item.getX()][item.getY()].add(item); 
+    }
+
     public void updateLocation() {
         for(int i = 0; i < maxX; i++) {
             for(int k = 0; k < maxY; k++) {

@@ -13,15 +13,6 @@ public class User extends PhysicalThing {
         this.name = name; 
         this.age = age; 
     }
-
-    public User(String name, int age, Boat boat, Fishingpole pole) {
-        super(); 
-        this.name = name; 
-        this.age = age; 
-        this.boat = boat;
-        this.pole = pole; 
-    }
-
     public void swim(int x) { 
 
         System.out.println("Swimming, swimming, swimming.");

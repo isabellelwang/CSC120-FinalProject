@@ -1,31 +1,39 @@
 import java.util.Scanner;
-import java.util.ArrayList; 
 
 public class GamePlay {
 
     public static void main(String[] args) {
         String name; 
         int age; 
-        ArrayList<PhysicalThing> things; 
-        Ocean gameMap = new Ocean(5, 5); 
-        PhysicalThing[][] thingHere = new PhysicalThing[5][5];
-
         boolean found = false; 
+        Ocean map = new Ocean(5, 5); 
 
-        Scanner in = new Scanner(System.in); 
+        //Making the eels, fish, and necklace and assigning to random positions 
+        Necklace pearls = new Necklace((int)(Math.random() * Ocean.getMaxX() + 1),(int)(Math.random() * Ocean.getMaxY() + 1));
+        Eel eel1 = new Eel((int)(Math.random() * Ocean.getMaxX() + 1),(int)(Math.random() * Ocean.getMaxY() + 1));
+        Eel eel2 = new Eel((int)(Math.random() * Ocean.getMaxX() + 1),(int)(Math.random() * Ocean.getMaxY() + 1));
+        Fish fish1 = new Fish((int)(Math.random() * Ocean.getMaxX() + 1),(int)(Math.random() * Ocean.getMaxY() + 1)); 
+        Fish fish2 = new Fish((int)(Math.random() * Ocean.getMaxX() + 1),(int)(Math.random() * Ocean.getMaxY() + 1));
+
+
+        Scanner in = new Scanner(System.in); //Creating a Scanner variable
         System.out.println("Welcome dear Fisherman...we are glad you finally came!");
-        System.out.println("What is your name?");
-        name = in.nextLine(); 
+        System.out.println("What is your name?"); //Asks for name
+        name = in.nextLine(); //User inputs name
 
-        in.nextLine(); 
+        in.nextLine(); //Clear input
     
         //Asks user for their age
         System.out.println("What is your age?");
-        age = in.nextInt(); 
+        age = in.nextInt(); //User inputs age
 
-        User player = new User(name, age);
-        Boat boat = new Boat(player); 
-        Fishingpole pole = new Fishingpole(player); 
+        User player = new User(name, age); //creating a User
+        map.addThing(player); 
+        Boat boat = new Boat(player);  //Creating a Boat
+        map.addThing(boat); 
+        Fishingpole pole = new Fishingpole(player); //Creating a Fishing pole
+        map.addThing(pole); 
+
 
         System.out.println("Dear Fisherman..."); 
         System.out.println("You lost your precious necklace yesterday while fishing. Today you will go out and find it!");
@@ -40,10 +48,10 @@ public class GamePlay {
         String response; 
 
         while(rounds < 5 && !found) {
-            System.out.println("Welcome! Type A to go on the boat"); 
-            response = in.nextLine(); 
-            if(response.equals("A") || response.equals("a")) {
-            }
+            System.out.println("Welcome! You are on the boat."); 
+
         }
+        
+        in.close(); 
     }
 }
