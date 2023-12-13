@@ -1,17 +1,24 @@
 public class Boat extends PhysicalThing {
     private User owner;
+    private static int size; 
     
     public Boat(User owner) {
         super(1, 1); 
         this.owner = owner; 
+        size = 1; 
     }
 
     public Boat() {
         super(5, 5); 
         this.owner = new User(); 
+        size = 1; 
     }
 
     public User getOwner() {
         return this.owner; 
+    }
+
+    public static int getSize() {
+        return size; 
     }
 }

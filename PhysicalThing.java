@@ -61,7 +61,7 @@ public class PhysicalThing {
         }
     }
 
-    public String toString() {
+    public String printCoordinates() {
         return ("The coordinate of " + this + " is (" + this.x + ", " + this.y + "). ");
     }
     

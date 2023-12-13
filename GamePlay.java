@@ -41,14 +41,37 @@ public class GamePlay {
 
         in.nextLine(); 
 
-        int numRounds = 5; 
-        int rounds = 0; 
-        int score = 0; 
+        int response; 
+        int moveXUnits = 0; 
+        int moveYUnits = 0; 
 
-        String response; 
+        while(!found) {
+            /* public void showOptions() {
+        System.out.println("Options: \n " + "1. rowBoat() \n 2. catchItem \n 3. extendPole() \n 4. swim() \n 5. jumpOffBoat() \n 6. getOnBoat() \n 7. pickUpItem()\n 7.");
+    }*/
+            System.out.println("Welcome! You are on the boat. What would you like to do?"); 
+            System.out.println(player.printCoordinates());
+            System.out.println("Please type in the corresponding number");
+            response = in.nextInt(); 
 
-        while(rounds < 5 && !found) {
-            System.out.println("Welcome! You are on the boat."); 
+            if(response == 1) {
+                in.nextLine(); 
+                System.out.println(player.printCoordinates()); 
+                System.out.println("You can only move " + Boat.getSize() + " units vertically and/or horizontally");
+                System.out.println("Rowing Boat: How many units would you like to move right or left? Select 0 if you would only like to move up and down.");
+                moveXUnits = in.nextInt(); 
+                in.nextLine(); 
+                System.out.println("How many units would you like to move up or down?"); 
+                moveYUnits = in.nextInt(); 
+                in.nextLine(); 
+                player.rowBoat(moveXUnits, moveYUnits); 
+                System.out.println(player.printCoordinates());
+            }
+            else if (response ==2) {
+                
+            }
+            
+
 
         }
         

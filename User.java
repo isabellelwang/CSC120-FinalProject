@@ -12,10 +12,12 @@ public class User extends PhysicalThing {
     public User(String name, int age) {
         this.name = name; 
         this.age = age; 
+        this.boat = new Boat(this); 
+        this.pole = new Fishingpole(this); 
     }
     public void swim(int x) { 
 
-        System.out.println("Swimming, swimming, swimming.");
+        System.out.println("You can't swim on the boat. Please jump off the boat if you want to swim.");
     } 
 
     public void rowBoat(int x, int y) {
@@ -38,7 +40,7 @@ public class User extends PhysicalThing {
 
     public void extendPole(int x, int y) {
         try{
-            pole.extendFishingPole(x, y); 
+            extendFishingPole(x, y); 
         }
         catch(Exception e) {
             System.err.println(e.getMessage());
@@ -51,15 +53,17 @@ public class User extends PhysicalThing {
     }
 
     public void showOptions() {
-        System.out.println("Options: \n " + "1. rowBoat() \n 2. catchItem \n 3. extendPole() \n 4. swim \n 5. jumpOffBoat \n 6. pickUpItem()\n");
-    }
-    
-    public String toString() {
-        return ("Your name is " + this.name + " and your age is " + this.age); 
+        System.out.println("Options: \n " + "1. rowBoat() \n 2. catchItem \n 3. extendPole() \n 4. swim() \n 5. jumpOffBoat() \n 6. getOnBoat() \n 7. pickUpItem()\n 7.");
     }
 
+    public String printCoordinates() {
+        return ("Your coordinates are (" + this.getX() + ", " + this.getY() + ")."); 
+    }
 
+    public static void main(String[] args) {
+        User player = new User("Isabelle", 18); 
 
-    
-
+        System.out.println(player.printCoordinates());
+        
+    }
 }

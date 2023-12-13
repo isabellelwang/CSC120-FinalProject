@@ -1,12 +1,12 @@
 public class Fishingpole extends PhysicalThing {
 
     private User owner;
-    private double length;  
+    private static double length;  
     
     public Fishingpole() {
         super(); 
         this.owner = new User(); 
-        this.length = 2; 
+        length = 2; 
     }
 
     /**
@@ -14,10 +14,10 @@ public class Fishingpole extends PhysicalThing {
      * @param owner String owner's name of the fishing pole
      * @param length 
      */
-    public Fishingpole(User owner, double length) {
+    public Fishingpole(User owner, double l) {
         super(); 
         this.owner = owner;
-        this.length = length; 
+        length = l; 
     }
 
     public Fishingpole(User owner) {
@@ -25,8 +25,8 @@ public class Fishingpole extends PhysicalThing {
         new Fishingpole(owner, 2); 
     }
     
-    public double getLength() {
-        return this.length; 
+    public static double getLength() {
+        return length; 
     }
 
     public User getOwner() {
@@ -34,7 +34,7 @@ public class Fishingpole extends PhysicalThing {
     }
 
     public void extendFishingPole(int x, int y) {
-        if(Math.abs(x) > this.getLength() || Math.abs(y) > this.getLength()){
+        if(Math.abs(x) > getLength() || Math.abs(y) > getLength()){
             throw new RuntimeException("Oh no...you extended too far so your fishing pole broke.");
         }
         else if (x <= 0 || y<= 0) {
