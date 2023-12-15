@@ -14,11 +14,20 @@ public class Boat extends PhysicalThing {
         size = 1; 
     }
 
+    public Boat(String name) {
+        super(1, 1); 
+        size = 1; 
+    }
+
     public User getOwner() {
         return this.owner; 
     }
 
     public static int getSize() {
         return size; 
+    }
+
+    public String toString() {
+        return (this + " has a size of " + size); 
     }
 }

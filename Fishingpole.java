@@ -1,11 +1,16 @@
 public class Fishingpole extends PhysicalThing {
 
     private User owner;
-    private static double length;  
+    private static int length;  
     
     public Fishingpole() {
         super(); 
         this.owner = new User(); 
+        length = 2; 
+    }
+
+    public Fishingpole(String name) {
+        super(); 
         length = 2; 
     }
 
@@ -14,7 +19,7 @@ public class Fishingpole extends PhysicalThing {
      * @param owner String owner's name of the fishing pole
      * @param length 
      */
-    public Fishingpole(User owner, double l) {
+    public Fishingpole(User owner, int l) {
         super(); 
         this.owner = owner;
         length = l; 
@@ -25,7 +30,7 @@ public class Fishingpole extends PhysicalThing {
         new Fishingpole(owner, 2); 
     }
     
-    public static double getLength() {
+    public static int getLength() {
         return length; 
     }
 
@@ -33,21 +38,33 @@ public class Fishingpole extends PhysicalThing {
         return this.owner; 
     }
 
-    public void extendFishingPole(int x, int y) {
+    public void extendPole(int x, int y) {
         if(Math.abs(x) > getLength() || Math.abs(y) > getLength()){
             throw new RuntimeException("Oh no...you extended too far so your fishing pole broke.");
         }
-        else if (x <= 0 || y<= 0) {
+        /*else if (x < 0 || y < 0) {
             throw new RuntimeException("You did not extend the fishing pole at all...");
-        }
+        } 
+        */
         this.moveX(x); 
         this.moveY(y); 
-        System.out.println("You extended your fishing pole " + x + " units!");
+        System.out.println(this.printCoordinates()); 
     }
 
+    /* 
     public void rewindFishingPole() {
-        this.moveX(-(owner.getX() - this.getX())); 
-        System.out.println("Position of fishing pole is now " + this.getX()); 
+        //this.moveX(-(.getX() - this.getX())); 
+        //this.moveY(-(owner.getY()- this.getY()));
+        System.out.println(this.printCoordinates()); 
+    }
+    */
+
+
+    public String printCoordinates() {
+        return ("The fishing pole's coordinate is (" + this.getX() + ", " + this.getY() + "). ");
+    }
+    public String toString() {
+        return ("Fishing pole has a length of " + length);
     }
 }
 

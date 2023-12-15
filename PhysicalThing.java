@@ -29,7 +29,7 @@ public class PhysicalThing {
 
     public String moveX(int x) {
         if((this.x + x) > Ocean.getMaxX() || (this.x + x) < 0) {
-                throw new RuntimeException("Error. You cannot move this far.");
+                throw new RuntimeException("Error. Your X coordinate is off the charts... You cannot move this far.");
         }
         this.x += x; 
         if(x > 0) {
@@ -45,7 +45,7 @@ public class PhysicalThing {
 
     public String moveY(int y) {
         if((this.y + y) > Ocean.getMaxY() || (this.y + y) < 0) {
-                throw new RuntimeException("Error. You cannot move this far.");
+                throw new RuntimeException("Error. Your Y coordinate is off the charts, You can't move this far.");
         }
 
         this.y += y; 

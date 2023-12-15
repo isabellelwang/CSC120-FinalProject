@@ -1,21 +1,35 @@
 public class User extends PhysicalThing {
-    private String name; 
-    private int age; 
+    private String name;
     private Boat boat; 
     private Fishingpole pole; 
 
     public User() {
         super(); 
-        new User("unknown", 20); 
+        new User("unknown"); 
     }
 
-    public User(String name, int age) {
+    public User(String name, Boat b, Fishingpole p) {
+        super(p.getX(), p.getY()); 
         this.name = name; 
-        this.age = age; 
         this.boat = new Boat(this); 
         this.pole = new Fishingpole(this); 
     }
-    public void swim(int x) { 
+
+    public User(String name) {
+        super(); 
+        this.name = name; 
+    }
+
+    public Fishingpole getPole() {
+        return this.pole; 
+    }
+
+    public Boat getBoat() {
+        return this.boat; 
+    }
+
+
+    public void swim() { 
 
         System.out.println("You can't swim on the boat. Please jump off the boat if you want to swim.");
     } 
@@ -24,6 +38,8 @@ public class User extends PhysicalThing {
         try{
             this.moveX(x); 
             this.moveY(y); 
+            pole.moveX(x); 
+            pole.moveY(y); 
         }
         catch(Exception e) {
             System.err.println(e.getMessage());
@@ -38,32 +54,43 @@ public class User extends PhysicalThing {
         System.out.println("Oh no! You jumped off the boat and got eaten by a shark.");
     }
 
-    public void extendPole(int x, int y) {
+    public void extendFishingPole(int x, int y) {
         try{
-            extendFishingPole(x, y); 
+            pole.extendPole(x, y); 
         }
         catch(Exception e) {
             System.err.println(e.getMessage());
         }
     }
 
-    public void catchItem() {
-        pole.rewindFishingPole(); 
-        System.out.println("You got something!");
+    public void catchItem(PhysicalThing thing) {
+        pole.moveX((this.getX() - pole.getX())); 
+        pole.moveY((this.getY()- pole.getY()));
+        //pole.rewindFishingPole(); 
+        System.out.println("You found a " + thing.getClass() + ".");
     }
 
     public void showOptions() {
-        System.out.println("Options: \n " + "1. rowBoat() \n 2. catchItem \n 3. extendPole() \n 4. swim() \n 5. jumpOffBoat() \n 6. getOnBoat() \n 7. pickUpItem()\n 7.");
+        System.out.println("Options:  " + " \n 1. rowBoat() \n 2. getOnBoat() \n 3. jumpOffBoat() \n 4. swim() \n 5. extendFishingPole \n 6. catchItem() \n 7. printCoordinates()  ");
     }
 
     public String printCoordinates() {
         return ("Your coordinates are (" + this.getX() + ", " + this.getY() + ")."); 
     }
 
-    public static void main(String[] args) {
-        User player = new User("Isabelle", 18); 
+    public String toString() {
+        return (this.name +", Welcome to Finding Necklace"); 
+    }
 
+    public static void main(String[] args) {
+        Boat b = new Boat (); 
+        Fishingpole p = new Fishingpole(); 
+        User player = new User("Isabelle", b, p); 
+        System.out.println(player.getPole());
         System.out.println(player.printCoordinates());
+        System.out.println(player.getPole().printCoordinates());
+
+        
         
     }
 }
