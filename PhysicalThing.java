@@ -64,6 +64,11 @@ public class PhysicalThing {
     public String printCoordinates() {
         return ("The coordinate of " + this + " is (" + this.x + ", " + this.y + "). ");
     }
+
+    public void changeCoordinates(int x, int y) {
+        this.x = x; 
+        this.y = y; 
+    }
     
     /*
     public String moveRight(int x) {

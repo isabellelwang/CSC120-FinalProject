@@ -6,12 +6,12 @@ public class Fishingpole extends PhysicalThing {
     public Fishingpole() {
         super(); 
         this.owner = new User(); 
-        length = 2; 
+        length = 3; 
     }
 
     public Fishingpole(String name) {
         super(); 
-        length = 2; 
+        length = 3; 
     }
 
     /**
@@ -50,15 +50,6 @@ public class Fishingpole extends PhysicalThing {
         this.moveY(y); 
         System.out.println(this.printCoordinates()); 
     }
-
-    /* 
-    public void rewindFishingPole() {
-        //this.moveX(-(.getX() - this.getX())); 
-        //this.moveY(-(owner.getY()- this.getY()));
-        System.out.println(this.printCoordinates()); 
-    }
-    */
-
 
     public String printCoordinates() {
         return ("The fishing pole's coordinate is (" + this.getX() + ", " + this.getY() + "). ");

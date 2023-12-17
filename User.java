@@ -51,7 +51,19 @@ public class User extends PhysicalThing {
     }
 
     public void jumpOffBoat() {
-        System.out.println("Oh no! You jumped off the boat and got eaten by a shark.");
+        int random = (int) (Math.random() * 4);
+        if(random == 0) { 
+            System.out.println("You jumped off forgetting you cannot swim. So, YOU DROWNED.");
+        }
+        else if (random == 1) {
+            System.out.println("Oh no! You jumped off the boat and got eaten by a shark.");
+        }
+        else if (random == 2) {
+            System.out.println("You got sucked in by a whirlpool and disappeared forever.");
+        }
+        else {
+            System.out.println("You jumped into freezing water and got paralyzed due to hypothermia.");
+        }
     }
 
     public void extendFishingPole(int x, int y) {
@@ -71,15 +83,21 @@ public class User extends PhysicalThing {
     }
 
     public void showOptions() {
-        System.out.println("Options:  " + " \n 1. rowBoat() \n 2. getOnBoat() \n 3. jumpOffBoat() \n 4. swim() \n 5. extendFishingPole \n 6. catchItem() \n 7. printCoordinates()  ");
+        System.out.println("Options:  " + " \n- row boat \n- get on boat \n- jump off boat \n- swim \n- extend fishing pole \n- catch item \n- print my coordinates \n- how to play");
     }
 
     public String printCoordinates() {
         return ("Your coordinates are (" + this.getX() + ", " + this.getY() + ")."); 
     }
 
+    public void printRules() {
+        System.out.println("How to play: ");
+        System.out.println("Your mission is to find the lost necklace...");
+        System.out.println("The game is a 6 by 6 coordinate system that moves in the positive x and y direction.");
+    }
+
     public String toString() {
-        return (this.name +", Welcome to Finding Necklace"); 
+        return (this.name +", Welcome to Fisherman Finds!"); 
     }
 
     public static void main(String[] args) {

@@ -27,6 +27,7 @@ public class Ocean {
         location[x][y] = null; 
     }
 
+
     /* 
     public static void updateLocations() {
         for(int i = 0; i < maxX; i++) {

@@ -5,18 +5,18 @@ public class Boat extends PhysicalThing {
     public Boat(User owner) {
         super(1, 1); 
         this.owner = owner; 
-        size = 1; 
+        size = 2; 
     }
 
     public Boat() {
         super(5, 5); 
         this.owner = new User(); 
-        size = 1; 
+        size = 2; 
     }
 
     public Boat(String name) {
         super(1, 1); 
-        size = 1; 
+        size = 2; 
     }
 
     public User getOwner() {
