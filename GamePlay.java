@@ -9,12 +9,6 @@ public class GamePlay {
 
         //Making the eels, fish, and necklace and assigning to random positions 
         PhysicalThing[] items = new PhysicalThing[5]; 
-        // Necklace pearls = new Necklace((int)(Math.random() * 2) + 4,(int)(Math.random() * 2) + 4);
-        // Eel eel1 = new Eel((int)(Math.random() * 2),(int)(Math.random() * 2) + 2);
-        // Eel eel2 = new Eel((int)(Math.random() * 2) + 2,(int)(Math.random() * 2) + 1);
-        // Fish fish1 = new Fish((int)(Math.random() * 2) + 1,(int)(Math.random() * 2) + 4); 
-        // Fish fish2 = new Fish((int)(Math.random() * 2) + 4,(int)(Math.random() * 2) + 1);
-
         Necklace pearls = new Necklace((int)(Math.random() * 6) ,(int)(Math.random() * 6));
         Eel eel1 = new Eel((int)(Math.random() * 6),(int)(Math.random() * 6));
         Eel eel2 = new Eel((int)(Math.random() * 6),(int)(Math.random() * 6));
@@ -39,13 +33,6 @@ public class GamePlay {
 
             }
         }
-
-        // System.out.println("Necklace: (" + pearls.getX() + ", " + pearls.getY() + "). "); 
-        // System.out.println("EEl1: (" + eel1.getX() + ", " + eel1.getY() + "). "); 
-        // System.out.println("EEl2: (" + eel2.getX() + ", " + eel2.getY() + "). "); 
-        // System.out.println("FIsh1: (" + fish1.getX() + ", " + fish1.getY() + "). "); 
-        // System.out.println("Fish2: (" + fish2.getX() + ", " + fish2.getY() + "). "); 
-        
 
         Ocean.addThing(pearls); 
         Ocean.addThing(eel1); 
@@ -103,7 +90,7 @@ public class GamePlay {
 
                     while(steps > Boat.getSize()) {
                         System.out.println("You can only move " + Boat.getSize() + " units vertically and/or horizontally");
-                        System.out.println("ROWING HORIZONTALLY: How many units would you like to move? Select 0 if not.");
+                        System.out.print("ROWING HORIZONTALLY: How many units would you like to move? Select 0 if not. \nInput: ");
                         steps = in.nextInt(); 
                     }
 
@@ -115,20 +102,21 @@ public class GamePlay {
                         System.out.println("Since your coordinates are (0, 0), you may only move right.");
                         }
                         else {
-                            System.out.println("Would you like to move: \nright \nleft");
+                            System.out.print("Would you like to move: \n- right \n- left \ninput: ");
                             response = in.nextLine(); 
                             if(response.equals("left")) {
                                 moveXUnits *= -1; 
                             }
                         }
                     }
-                
+                    
+                    System.out.print("PRESS ENTER TO CONTINUE...");
                     in.nextLine(); 
                 
                     steps = Boat.getSize() + 1; 
                     while(steps > Boat.getSize()) {
                         System.out.println("ROWING VERTICALLY: How many units would you like to move up or down? Select 0 if not."); 
-                        System.out.println("You can only move " + Boat.getSize() + " units"); 
+                        System.out.print("You can only move " + Boat.getSize() + " units. \ninput: "); 
                         steps = in.nextInt(); 
                     }
     
@@ -140,14 +128,14 @@ public class GamePlay {
                             System.out.println("Since you are at (0, 0), you can only move up");
                         }
                         else {
-                            System.out.println("Would you like to move: \nup \ndown");
+                            System.out.print("Would you like to move: \nup \ndown \nInput: ");
                             response = in.nextLine(); 
                             if(response.equals("down")) {
                                 moveYUnits *= -1; 
                             }
                         }
                     }
-
+        
                     player.rowBoat(moveXUnits, moveYUnits); 
                     System.out.println(player.printCoordinates());
                     break; 
@@ -174,10 +162,11 @@ public class GamePlay {
                     steps = Fishingpole.getLength() + 1; 
                     while(steps > Fishingpole.getLength()) {
                         System.out.println("You can only extend " + Fishingpole.getLength() + " units vertically and/or horizontally");
-                        System.out.println("EXTENDING HORIZONTALLY: How many units would you like to extend? select 0 if not:");
+                        System.out.print("EXTENDING HORIZONTALLY: How many units would you like to extend? select 0 if not. \nInput: ");
                         steps = in.nextInt();
                     }
-                
+                    
+                    in.nextLine(); 
                     moveXUnits = Math.abs(steps);  
 
 
@@ -186,17 +175,18 @@ public class GamePlay {
                             System.out.println("Since you are at position (0, 0), you can only move right.");
                         } else {
                             System.out.println("------------------");
-                            System.out.println("Would you like to move: \n- right \n- left ");
+                            System.out.println("Would you like to move: \n- right \n- left \nInput: ");
                             response = in.nextLine(); 
                             if(response.equals("left")) {
                             moveXUnits *= -1; 
                             }
                         }
                     }
+                    in.nextLine(); 
 
                     steps = Fishingpole.getLength() + 1; 
                     while(steps > Fishingpole.getLength()) {
-                        System.out.println("EXTENDING VERTICALLY: How many units would you like to extend vertically? select 0 if not");
+                        System.out.print("EXTENDING VERTICALLY: How many units would you like to extend vertically? select 0 if not. \nInput: ");
                         steps = in.nextInt(); 
                     }
 
@@ -207,7 +197,7 @@ public class GamePlay {
                         if(player.getPole().getX() == 0 && player.getPole().getY() == 0) {
                             System.out.println("Since you are at (0, 0), you can only extend up.");
                         } else {
-                            System.out.println("Would you like to move \n- up \n- down");
+                            System.out.print("Would you like to move \n- up \n- down \nInput: ");
                             response = in.nextLine(); 
                             if(response.equals("down")){
                                 moveYUnits *= -1; 
@@ -274,17 +264,17 @@ public class GamePlay {
                     in.nextLine(); 
                     break; 
 
-            case ("catch item") : 
-                System.out.println("Please extend the fishing pole first!");
-                break;
+                case ("catch item") : 
+                    System.out.println("Please extend the fishing pole first!");
+                    break;
             
-            case ("print my coordinates") :
-                System.out.println(player.printCoordinates());
-                break; 
-            default : 
-                System.out.println("Invalid input, try again.");
-                break; 
-            }
+                case ("print my coordinates") :
+                    System.out.println(player.printCoordinates());
+                    break; 
+                default : 
+                    System.out.println("Invalid input, try again.");
+                    break; 
+                }
             System.out.println("PRESS ENTER TO CONTINUE...");
             in.nextLine(); 
         }

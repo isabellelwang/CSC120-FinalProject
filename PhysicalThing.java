@@ -1,106 +1,84 @@
 public class PhysicalThing {
+
+    /**
+     * int x coordinate
+     * int y coordinate
+     */
     private int x; 
     private int y; 
 
-
+    /**
+     * contructs physical thing by setting x and y coordinates to 0.
+     */
     public PhysicalThing() {
         this.x = 0; 
         this.y = 0; 
     }
     
+    /**
+     * constructs physicalthing with int x and int y
+     * @param x int x coordinate
+     * @param y int y coordinate
+     */
     public PhysicalThing(int x, int y) {
         this.x = x; 
         this.y = y; 
     }
 
-    public PhysicalThing(int x) {
-        this.y = 0; 
-        this.x = x; 
-    }
-
+    /**
+     * access x coordinate
+     * @return int x coordinate
+     */
     public int getX() {
         return this.x; 
     }
 
+    /**
+     * Access y coordinate
+     * @return int y coordinate
+     */
     public int getY() {
         return this.y; 
     }
 
-
-    public String moveX(int x) {
-        if((this.x + x) > Ocean.getMaxX() || (this.x + x) < 0) {
+    /**
+     * Moves x units
+     * @param x int x number of x units moved (right/left)
+     */
+    public void moveX(int x) {
+        if((this.x + x) > Ocean.getMaxX() - 1 || (this.x + x) < 0) {
                 throw new RuntimeException("Error. Your X coordinate is off the charts... You cannot move this far.");
         }
         this.x += x; 
-        if(x > 0) {
-            return (this + " moved" + x + " units to the right."); 
-        }
-        else if(x < 0) {
-            return (this + " moved" + -x + " units to the left."); 
-        }
-        else {
-            return ("You did not move...");
-        }
     }
 
-    public String moveY(int y) {
-        if((this.y + y) > Ocean.getMaxY() || (this.y + y) < 0) {
+    /**
+     * Moves Y units
+     * @param y int y number of y units moved (up/down)
+     */
+    public void moveY(int y) {
+        if((this.y + y) > Ocean.getMaxY() - 1 || (this.y + y) < 0) {
                 throw new RuntimeException("Error. Your Y coordinate is off the charts, You can't move this far.");
         }
 
-        this.y += y; 
-
-        if(y > 0) {
-            return (this + " moved " + y + " units up"); 
-        }
-        else if(y < 0) {
-            return (this + " moved " + -y + " units down"); 
-        }
-        else {
-            return ("You did not move...");
-        }
+        this.y += y;
     }
 
+    /**
+     * Returns the x and y coordinates
+     * @return String coordinate x and y 
+     */
     public String printCoordinates() {
         return ("The coordinate of " + this + " is (" + this.x + ", " + this.y + "). ");
     }
 
+    /**
+     * void changes coordinate to x and y
+     * @param x int x coordinate
+     * @param y int y coordinate
+     */
     public void changeCoordinates(int x, int y) {
         this.x = x; 
         this.y = y; 
     }
-    
-    /*
-    public String moveRight(int x) {
-        if((this.x + x) > Ocean.getMaxX()) {
-            throw new RuntimeException("Error. You cannot move this far"); 
-        }
-        this.x += x; 
-        return (this + " moved" + this.x + " units to the right."); 
-    }
-
-    public String moveLeft(int x) {
-        if((this.x - x) < 0 ) {
-            throw new RuntimeException("You cannot move this far."); 
-        }
-        this.x -= x; 
-        return (this + " moved" + this.x + " units to the right."); 
-    }
-
-    public String move(int y) {
-        if((this.y + y) > Ocean.getMaxY()) {
-            throw new RuntimeException("Error. You cannot move this far"); 
-        }
-        this.y += y; 
-        return (this + " moved" + this.y + " units forward"); 
-    }
-    
-    public String moveBackward(int y) {
-        if((this.y + y) < 0) {
-            throw new RuntimeException("Error. You cannot move this far"); 
-        }
-        this.y -= y; 
-        return (this + " moved" + this.y + " units forward");
-    }
-    */
 }

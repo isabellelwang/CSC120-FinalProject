@@ -21,6 +21,12 @@ Options include:
 
 If your game includes challenges that must be overcome to win, also list them below.
 
-The placement of the eel, fish, and necklace is set into four squares. 
+You can find the coordinates of each random NPCs if you place these lines into line 43-47. 
+        System.out.println("Necklace: (" + pearls.getX() + ", " + pearls.getY() + "). "); 
+        System.out.println("EEl1: (" + eel1.getX() + ", " + eel1.getY() + "). "); 
+        System.out.println("EEl2: (" + eel2.getX() + ", " + eel2.getY() + "). "); 
+        System.out.println("FIsh1: (" + fish1.getX() + ", " + fish1.getY() + "). "); 
+        System.out.println("Fish2: (" + fish2.getX() + ", " + fish2.getY() + "). "); 
+
 
 

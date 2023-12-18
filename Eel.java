@@ -2,6 +2,11 @@ import java.lang.Math;
 
 public class Eel extends PhysicalThing {
 
+    /**
+     * Constructs eel with x and y coordinates
+     * @param x int x coordinate of eel
+     * @param y int y coordinate of eel
+     */
     public Eel(int x, int y) {
         super(x, y); 
     }

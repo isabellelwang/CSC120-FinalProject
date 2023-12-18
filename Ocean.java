@@ -1,63 +1,47 @@
 public class Ocean {
+    /**
+     * location- 2D Array of Physical Thing
+     * maxX - int highest x coordinate 
+     * maxY - int highest y coordinate
+     */
     private static PhysicalThing[][] location;
     private static int maxX; 
     private static int maxY;
 
-    
+    /**
+     * Constructs Ocean with maximum x and maximum y value, also intialiazes location
+     * @param x int highest x coordinate
+     * @param y int highest y coordinate
+     */
     public Ocean(int x, int y) {
         maxX = x; 
         maxY = y; 
         location = new PhysicalThing[maxX][maxY]; 
     }
 
-
+    /**
+     * Access maxmimum x coordinate
+     * @return int maximum coordinate
+     */
     public static int getMaxX() {
         return maxX;
     }
 
+    /**
+     * Access maximum y coordinate
+     * @return int maxmimum y coordinate
+     */
     public static int getMaxY() {
         return maxY; 
     }
 
+    /**
+     * add PhysicalThing item into 2D array
+     * @param item PhysicalThing added 
+     */
     public static void addThing(PhysicalThing item) {
         location[item.getX()][item.getY()] = item; 
     }
-
-    public static void removeThing(int x, int y) {
-        location[x][y] = null; 
-    }
-
-
-    /* 
-    public static void updateLocations() {
-        for(int i = 0; i < maxX; i++) {
-            for(int k = 0; k < maxY; k++) {
-                if(location[i][k] != null){
-                    int currentX = location[i][k].getX(); 
-                    int currentY = location[i][k].getY(); 
-                    location[currentX][currentY] = location[i][k]; 
-                    location[i][k] = null; 
-                }
-                //System.out.println("Location updated!");
-            }
-        }
-    }
-
-
-    public static PhysicalThing thingsInLocation(int x, int y) {
-        return location[x][y]; 
-    }
-
-    public static void printLocations() {
-        for(int i = 0; i < location.length; i++){
-            for (int k = 0; k< location[i].length; k++) {
-                if(location[i][k] != null) {
-                    System.out.println(location[i][k] + " at (" + i + "," + k + "). ");
-                }
-            }
-        }
-    }
-    */
 
     public static void main(String[] args) {
         System.out.println(getMaxX()); 
