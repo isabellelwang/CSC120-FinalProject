@@ -271,6 +271,12 @@ public class GamePlay {
                 case ("print my coordinates") :
                     System.out.println(player.printCoordinates());
                     break; 
+
+                case("how to play"):
+                    System.out.println("---------------------------");
+                    player.printRules(); 
+                    break;
+
                 default : 
                     System.out.println("Invalid input, try again.");
                     break; 
